@@ -6,6 +6,7 @@ import { RouterModule }   from "@angular/router";
 import { AppComponent }	 from "./core/app.component";
 import { AppRoutingModule }     from "./core/app-routing.module";
 import { BoxComponent } from "./box/box.component";
+import { MedicineComponent } from "./medicine/medicine.component";
 
 @NgModule({
   imports: [
@@ -16,6 +17,7 @@ import { BoxComponent } from "./box/box.component";
   declarations: [
     AppComponent,
     BoxComponent,
+    MedicineComponent
   ],
   bootstrap: [ AppComponent ]
 })

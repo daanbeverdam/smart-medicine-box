@@ -2,11 +2,11 @@ import { Component, OnInit } from "@angular/core";
 
 @Component({
   moduleId: module.id,
-  templateUrl: "box.component.html",
-  styleUrls: [ "box.component.css" ]
+  templateUrl: "medicine.component.html",
+  styleUrls: [ "medicine.component.css" ]
 })
 
-export class BoxComponent implements OnInit {
+export class MedicineComponent implements OnInit {
   // heroes: Hero[] = [];
   //
   // constructor(private heroService: HeroService) { }
