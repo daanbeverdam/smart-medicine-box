@@ -1,18 +1,21 @@
 import { Component, OnInit } from "@angular/core";
+import { Medicine } from "../shared/medicine";
+import { AppService } from "../shared/app.service";
 
 @Component({
   moduleId: module.id,
   templateUrl: "medicine.component.html",
-  styleUrls: [ "medicine.component.css" ]
+  styleUrls: [ "medicine.component.css" ],
+  providers: [ AppService ]
 })
 
 export class MedicineComponent implements OnInit {
-  // heroes: Hero[] = [];
-  //
-  // constructor(private heroService: HeroService) { }
-  //
+  availableMedicine: Medicine[];
+
+  constructor(private appService: AppService) { }
+
   ngOnInit(): void {
-  //   this.heroService.getHeroes()
-  //     .then(heroes => this.heroes = heroes.slice(1, 5));
+    this.appService.getMedicine().then(medicine => this.availableMedicine = medicine);
+    window.console.log(this.availableMedicine);
   }
 }

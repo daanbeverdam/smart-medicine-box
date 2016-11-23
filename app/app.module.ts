@@ -7,6 +7,7 @@ import { AppComponent }	 from "./core/app.component";
 import { AppRoutingModule }     from "./core/app-routing.module";
 import { BoxComponent } from "./box/box.component";
 import { MedicineComponent } from "./medicine/medicine.component";
+import { AppService } from "./shared/app.service";
 
 @NgModule({
   imports: [
@@ -17,8 +18,9 @@ import { MedicineComponent } from "./medicine/medicine.component";
   declarations: [
     AppComponent,
     BoxComponent,
-    MedicineComponent
+    MedicineComponent,
   ],
+  providers: [ AppService ],
   bootstrap: [ AppComponent ]
 })
 
