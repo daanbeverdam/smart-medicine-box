@@ -5,7 +5,7 @@ import { BoxComponent } from "../box/box.component";
 import { MedicineComponent } from "../medicine/medicine.component";
 
 const routes: Routes = [
-{ path: "", redirectTo: "/box", pathMatch: "full" },
+{ path: "", redirectTo: "/medicine", pathMatch: "full" },
 { path: "box",  component: BoxComponent },
 { path: "medicine", component: MedicineComponent }
 ];

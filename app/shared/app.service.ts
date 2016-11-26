@@ -3,7 +3,7 @@ import { Injectable } from "@angular/core";
 import { TimeOfDay } from "./time-of-day";
 import { Medicine } from "./medicine";
 
-const MEDICINE = [
+const MEDICINES = [
   new Medicine("red"),
   new Medicine("blue"),
   new Medicine("green"),
@@ -18,10 +18,29 @@ const TIMES = [
 
 @Injectable()
 export class AppService {
+  timeIndex: number = 0;
+  medicines: Medicine[];
+  timesOfDay: TimeOfDay[];
+
   getMedicine(): Promise<Medicine[]> {
-    return Promise.resolve(MEDICINE);
+    this.medicines = MEDICINES; // caching
+    return Promise.resolve(this.medicines);
   }
+
   getTimesOfDay(): Promise<TimeOfDay[]> {
-    return Promise.resolve(TIMES);
+    this.timesOfDay = TIMES; // caching
+    return Promise.resolve(this.timesOfDay);
+  }
+
+  getCurrentTimeOfDay(): TimeOfDay {
+    return this.timesOfDay[this.timeIndex];
+  }
+
+  shiftTime() {
+    if (this.timeIndex === this.timesOfDay.length - 1) {
+      this.timeIndex = 0;
+    } else {
+      this.timeIndex += 1;
+    }
   }
 }

@@ -1,13 +1,12 @@
 <h2>My box</h2>
-<nav class="time-of-day">
-    <button>Morning</button>
-    <button>Noon</button>
-    <button>Evening</button>
-</nav>
-<div class="grid grid-pad">
-  <!-- <a *ngFor="let hero of heroes"  [routerLink]="['/detail', hero.id]"  class="col-1-4">
-    <div class="module hero">
-      <h4>{{hero.name}}</h4>
+<section ng-model="currentTimeOfDay" class="simulate time-of-day">
+    <h3>{{currentTimeOfDay.name}}</h3>
+    <span>You have to take the following medicines:</span>
+    <div *ngFor="let medicine of currentTimeOfDay.medicines">
+        <span>{{medicine.name}}</span>
     </div>
-  </a> -->
-</div>
+<section>
+<nav class="simulate">
+    <span class="simulate-text">Next time</span>
+    <button (click)="simulateTimeShift()" type="button">Advance</button>
+</nav>

@@ -7,7 +7,7 @@ import { AppService } from "../shared/app.service";
 @Component({
   moduleId: module.id,
   templateUrl: "medicine.component.html",
-  styleUrls: [ "medicine.component.css" ],
+  styleUrls: [ "medicine.component.css", "../shared/shared.css" ],
   providers: [ AppService ]
 })
 
