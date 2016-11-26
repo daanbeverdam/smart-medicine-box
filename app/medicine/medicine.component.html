@@ -1,23 +1,15 @@
 <h2>My medicine</h2>
-<div class="time-of-day">
-    <i class="fa fa-sun-o morning" aria-hidden="true"></i>
-    <i class="fa fa-sun-o noon" aria-hidden="true"></i>
-    <i class="fa fa-moon-o evening" aria-hidden="true"></i>
-</div>
 <div class="medicine-setup">
-    <ul class="morning">
-        <li *ngFor="let medicine of availableMedicine">
-            {{medicine.name}}<input type="checkbox" [(ngModel)]="medicine.takenAtMorning">
-        </li>
-    </ul>
-    <ul class="noon">
-        <li *ngFor="let medicine of availableMedicine">
-            {{medicine.name}}<input type="checkbox" [(ngModel)]="medicine.takenAtNoon">
-        </li>
-    </ul>
-    <ul class="noon">
-        <li *ngFor="let medicine of availableMedicine">
-            {{medicine.name}}<input type="checkbox" [(ngModel)]="medicine.takenAtEvening">
-        </li>
-    </ul>
+    <section *ngFor="let timeOfDay of timesOfDay" class="setup {{timeOfDay.name}}">
+        <div class="setup {{timeOfDay.name}} header">
+            <i class="fa {{timeOfDay.icon}} {{timeOfDay.name}}" aria-hidden="true"></i>
+            <h3>{{timeOfDay.name}}</h3>
+        </div>
+        <ul class="{{timeOfDay.name}}">
+            <li *ngFor="let medicine of medicines">
+                <input type="checkbox" [checked]="timeOfDay.isInMedicines(medicine)" (change)="timeOfDay.updateMedicines(medicine)">
+                <span>{{medicine.name}}</span>
+            </li>
+        </ul>
+    </section>
 </div>
