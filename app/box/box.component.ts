@@ -25,7 +25,12 @@ export class BoxComponent implements OnInit {
   }
 
   simulateTimeShift() {
-    this.appService.shiftTime();
-    this.currentTimeOfDay = this.appService.getCurrentTimeOfDay();
+    if (this.currentTimeOfDay.medicinesTaken) {
+      this.appService.shiftTime();
+      this.currentTimeOfDay.reset();
+      this.currentTimeOfDay = this.appService.getCurrentTimeOfDay();
+    } else {
+      // nothing happens muhahaha!
+    }
   }
 }

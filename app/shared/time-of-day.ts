@@ -4,7 +4,7 @@ export class TimeOfDay {
   name: string; // for example morning, noon or evening
   icon: string; // fa-icon
   medicines: Medicine[]; // meds that need to be taken at this time of day
-  test: boolean;
+  medicinesTaken: boolean = false;
 
   constructor (name: string, icon?: string, medicines?: Medicine[]) {
     this.name = name;
@@ -16,7 +16,6 @@ export class TimeOfDay {
     } else {
       this.medicines = [];
     }
-    this.test = true;
   }
 
   updateMedicines (medicine: Medicine) {
@@ -34,5 +33,13 @@ export class TimeOfDay {
       return false;
     }
     return true;
+  }
+
+  takeMedicines () {
+    this.medicinesTaken = true;
+  }
+
+  reset () {
+    this.medicinesTaken = false;
   }
 }

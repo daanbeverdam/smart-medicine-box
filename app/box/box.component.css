@@ -5,6 +5,11 @@
     bottom: 20px;
 }
 
-.simulate-text {
+.directions {
     display: block;
+    margin-bottom: 1em;
+}
+
+.take-button.wrapper {
+    margin-top: 1em;
 }

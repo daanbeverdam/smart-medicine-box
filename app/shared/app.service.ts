@@ -4,10 +4,10 @@ import { TimeOfDay } from "./time-of-day";
 import { Medicine } from "./medicine";
 
 const MEDICINES = [
-  new Medicine("red"),
-  new Medicine("blue"),
-  new Medicine("green"),
-  new Medicine("black")
+  new Medicine("red", "red"),
+  new Medicine("blue", "blue"),
+  new Medicine("green", "green"),
+  new Medicine("black", "black")
 ];
 
 const TIMES = [
@@ -23,16 +23,17 @@ export class AppService {
   timesOfDay: TimeOfDay[];
 
   getMedicine(): Promise<Medicine[]> {
-    this.medicines = MEDICINES; // caching
+    this.medicines = MEDICINES;
     return Promise.resolve(this.medicines);
   }
 
   getTimesOfDay(): Promise<TimeOfDay[]> {
-    this.timesOfDay = TIMES; // caching
+    this.timesOfDay = TIMES;
     return Promise.resolve(this.timesOfDay);
   }
 
   getCurrentTimeOfDay(): TimeOfDay {
+    console.log(this.timesOfDay[this.timeIndex]);
     return this.timesOfDay[this.timeIndex];
   }
 

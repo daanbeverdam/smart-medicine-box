@@ -61,3 +61,22 @@ button:hover {
     display: block;
     text-align: center;
 }
+
+.fa-pill{
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=.5);
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.fa-pill:before {
+  content: "\f205";
+}
+
+.succes-message {
+    margin-top: 1em;
+    background-color: #e0ffe0;
+    padding: 5px;
+    max-width: 200px;
+    margin: 1em auto;
+    border-radius: 4px;
+}

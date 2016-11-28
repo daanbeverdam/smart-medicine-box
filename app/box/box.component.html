@@ -1,12 +1,24 @@
 <h2>My box</h2>
 <section ng-model="currentTimeOfDay" class="simulate time-of-day">
-    <h3>{{currentTimeOfDay.name}}</h3>
-    <span>You have to take the following medicines:</span>
-    <div *ngFor="let medicine of currentTimeOfDay.medicines">
-        <span>{{medicine.name}}</span>
+    <header class="header simulation">
+        <i class="fa {{currentTimeOfDay.icon}} {{currentTimeOfDay.name}}" aria-hidden="true"></i>
+        <h3>{{currentTimeOfDay.name}}</h3>
+        <span class="directions">You have to take the following medicines:</span>
+    </header>
+    <div *ngIf="!currentTimeOfDay.medicinesTaken">
+        <div *ngFor="let medicine of currentTimeOfDay.medicines">
+            <i [style.color]="medicine.color" class="fa fa-pill" aria-hidden="true"></i>
+            <span>{{medicine.name}}</span>
+        </div>
+    </div>
+    <div *ngIf="currentTimeOfDay.medicinesTaken" class="succes-message">
+        <i class="fa fa-check" aria-hidden="true"></i>
+        <span>Nom, nom! You may advance.</span>
+    </div>
+    <div class="take-button wrapper">
+        <button (click)="currentTimeOfDay.takeMedicines()" class="take-button" type="button">Take them!</button>
     </div>
 <section>
 <nav class="simulate">
-    <span class="simulate-text">Next time</span>
     <button (click)="simulateTimeShift()" type="button">Advance</button>
 </nav>
