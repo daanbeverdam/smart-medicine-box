@@ -1,19 +1,23 @@
-<h2>My medicine</h2>
-<div class="medicine-setup">
-    <section *ngFor="let timeOfDay of timesOfDay" class="setup {{timeOfDay.name}}">
-        <div class="setup {{timeOfDay.name}} header">
-            <i class="fa {{timeOfDay.icon}} {{timeOfDay.name}}" aria-hidden="true"></i>
-            <h3>{{timeOfDay.name}}</h3>
+<div class="main-view wrapper">
+    <div class="main-view">
+        <h2>My medicine</h2>
+        <div class="medicine-setup">
+            <section *ngFor="let timeOfDay of timesOfDay" class="setup {{timeOfDay.name}}">
+                <div class="setup {{timeOfDay.name}} header">
+                    <i class="fa {{timeOfDay.icon}} {{timeOfDay.name}}" aria-hidden="true"></i>
+                    <h3>{{timeOfDay.name}}</h3>
+                </div>
+                <ul class="{{timeOfDay.name}}">
+                    <li *ngFor="let medicine of medicines">
+                        <input type="checkbox" [checked]="timeOfDay.isInMedicines(medicine)" (change)="timeOfDay.updateMedicines(medicine)">
+                        <span>{{medicine.name}}</span>
+                    </li>
+                </ul>
+            </section>
         </div>
-        <ul class="{{timeOfDay.name}}">
-            <li *ngFor="let medicine of medicines">
-                <input type="checkbox" [checked]="timeOfDay.isInMedicines(medicine)" (change)="timeOfDay.updateMedicines(medicine)">
-                <span>{{medicine.name}}</span>
-            </li>
-        </ul>
-    </section>
-</div>
-<div *ngIf="container.isBlocked" class="info-message wrapper">
-    <span>Patient's container is blocked. Unblock?</span>
-    <button (click)="unblockContainer()" class="unblock-button" type="button">Unblock</button>
+        <div *ngIf="container.isBlocked" class="info-message wrapper">
+            <span>Patient's container is blocked. Unblock?</span>
+            <button (click)="unblockContainer()" class="unblock-button" type="button">Unblock</button>
+        </div>
+    </div>
 </div>

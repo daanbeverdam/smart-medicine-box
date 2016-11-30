@@ -1,4 +1,4 @@
-.simulate nav {
+nav.simulate {
     text-align: right;
     position: absolute;
     right: 20px;
@@ -8,6 +8,13 @@
 .directions {
     display: block;
     margin-bottom: 1em;
+}
+
+.box-view.wrapper {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .take-button.wrapper {
