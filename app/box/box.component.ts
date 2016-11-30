@@ -16,7 +16,6 @@ export class BoxComponent implements OnInit {
   timesOfDay: TimeOfDay[];
   container: Container;
   currentTimeOfDay: TimeOfDay;
-  medicinesTaken: boolean;
 
   constructor(private appService: AppService) {
   }
@@ -31,7 +30,7 @@ export class BoxComponent implements OnInit {
 
   takeMedicines() {
     this.container.clearMedicines();
-    this.medicinesTaken = true;
+    this.currentTimeOfDay.medicinesTaken = true;
   }
 
   startSimulation() {
@@ -45,7 +44,7 @@ export class BoxComponent implements OnInit {
     if (!this.container.isEmpty()) {
       this.container.isBlocked = true;
     }
-    this.medicinesTaken = false;
+    this.currentTimeOfDay.medicinesTaken = false;
     this.appService.shiftTime();
     this.currentTimeOfDay = this.appService.getCurrentTimeOfDay();
     this.appService.dropMedicines();

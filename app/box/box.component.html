@@ -15,13 +15,13 @@
                     </div>
                 </div>
             </div>
-            <div *ngIf="medicinesTaken" class="succes-message">
+            <div *ngIf="currentTimeOfDay.medicinesTaken" class="succes-message">
                 <i class="fa fa-check" aria-hidden="true"></i>
                 <span>Nom, nom!</span>
             </div>
             <div *ngIf="container.isBlocked" class="error-message">
                 <i class="fa fa-times" aria-hidden="true"></i>
-                <span>Oops! You haven't taken your medicine on time. Please contact your doctor on how to procede.</span>
+                <span>Oops! You haven't taken your medicine on time. Please contact your doctor on how to proceed.</span>
             </div>
             <div *ngIf="!container.isBlocked" class="take-button wrapper">
                 <button (click)="takeMedicines()" class="take-button" type="button">Take them!</button>

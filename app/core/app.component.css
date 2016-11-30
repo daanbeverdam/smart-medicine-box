@@ -13,21 +13,21 @@ nav.main {
     left: 20px;
     bottom: 20px;
 }
-nav a {
+nav.main a {
   padding: 5px 10px;
   text-decoration: none;
   display: inline-block;
   background-color: #eee;
   border-radius: 4px;
 }
-nav a:visited, a:link {
+nav.main a:visited, a:link {
   color: #607D8B;
 }
-nav a:hover {
+nav.main a:hover {
   color: #039be5;
   background-color: #CFD8DC;
 }
-nav a.active {
+nav.main a.active {
   color: #039be5;
 }
 .app-header {
@@ -44,4 +44,35 @@ nav a.active {
     letter-spacing: -2px;
     font-weight: 600;
     text-align: right;
+    float: right;
+    display: inline-block;
+}
+
+nav.top {
+    display: inline-block;
+}
+
+nav.top a {
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+    margin-right: 10px;
+    letter-spacing: -1px;
+    font-size: 25px;
+}
+
+nav.top a.active {
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 550px) {
+    nav.top {
+        display:none;
+    }
+}
+
+@media screen and (min-width: 550px) {
+    nav.main {
+        display:none;
+    }
 }

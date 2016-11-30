@@ -10,13 +10,6 @@ nav.simulate {
     margin-bottom: 1em;
 }
 
-.box-view.wrapper {
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .take-button.wrapper {
     margin-top: 1em;
 }

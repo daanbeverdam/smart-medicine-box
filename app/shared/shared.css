@@ -79,6 +79,7 @@ button:hover {
     max-width: 200px;
     margin: 1em auto;
     border-radius: 4px;
+    line-height: 1.4em;
 }
 
 .error-message {
@@ -88,6 +89,7 @@ button:hover {
     max-width: 200px;
     margin: 1em auto;
     border-radius: 4px;
+    line-height: 1.4em;
 }
 
 .info-message {
@@ -95,8 +97,8 @@ button:hover {
     width: 300;
     padding: 15px;
     border-radius: 4px;
-        border: solid 1px #e4e4e4;
     background: #f9f9f9;
+    line-height: 1.4em;
 }
 
 .unblock-button {
@@ -104,9 +106,16 @@ button:hover {
     display: block;
 }
 
+.main-view {
+    padding-top: 20px;
+    box-sizing: border-box;
+    max-width: 600px;
+    margin: auto;
+}
+
 .main-view.wrapper {
     height: 100%;
-    padding-top: 59px;
+    padding-top: 60px;
     box-sizing: border-box;
     /*display: flex;
     justify-content: center;
