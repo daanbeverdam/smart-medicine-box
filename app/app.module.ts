@@ -18,7 +18,7 @@ import { AppService } from "./shared/app.service";
   declarations: [
     AppComponent,
     BoxComponent,
-    MedicineComponent,
+    MedicineComponent
   ],
   providers: [ AppService ],
   bootstrap: [ AppComponent ]

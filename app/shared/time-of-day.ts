@@ -5,6 +5,7 @@ export class TimeOfDay {
   icon: string; // fa-icon
   medicines: Medicine[]; // meds that need to be taken at this time of day
   medicinesTaken: boolean = false;
+  medicinesDropped: boolean = false;
 
   constructor (name: string, icon?: string, medicines?: Medicine[]) {
     this.name = name;
@@ -25,6 +26,7 @@ export class TimeOfDay {
     } else {
       this.medicines.push(medicine);
     }
+    console.log("Medicines to be taken in the " + this.name + ":");
     console.log(this.medicines);
   }
 

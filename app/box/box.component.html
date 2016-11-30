@@ -5,20 +5,26 @@
         <h3>{{currentTimeOfDay.name}}</h3>
         <span class="directions">You have to take the following medicines:</span>
     </header>
-    <div *ngIf="!currentTimeOfDay.medicinesTaken">
-        <div *ngFor="let medicine of currentTimeOfDay.medicines">
-            <i [style.color]="medicine.color" class="fa fa-pill" aria-hidden="true"></i>
-            <span>{{medicine.name}}</span>
+    <div class="medicine-container">
+        <div *ngIf="!currentTimeOfDay.medicinesTaken">
+            <div *ngFor="let medicine of container.medicines">
+                <i [style.color]="medicine.color" class="fa fa-pill" aria-hidden="true"></i>
+                <span>{{medicine.name}}</span>
+            </div>
         </div>
     </div>
-    <div *ngIf="currentTimeOfDay.medicinesTaken" class="succes-message">
+    <div *ngIf="medicinesTaken" class="succes-message">
         <i class="fa fa-check" aria-hidden="true"></i>
-        <span>Nom, nom! You may advance.</span>
+        <span>Nom, nom!</span>
     </div>
-    <div class="take-button wrapper">
-        <button (click)="currentTimeOfDay.takeMedicines()" class="take-button" type="button">Take them!</button>
+    <div *ngIf="container.isBlocked" class="error-message">
+        <i class="fa fa-times" aria-hidden="true"></i>
+        <span>Oops! You haven't taken your medicine on time. Please contact your doctor on how to procede.</span>
+    </div>
+    <div *ngIf="!container.isBlocked" class="take-button wrapper">
+        <button (click)="takeMedicines()" class="take-button" type="button">Take them!</button>
     </div>
 <section>
-<nav class="simulate">
-    <button (click)="simulateTimeShift()" type="button">Advance</button>
+<nav *ngIf="!container.isBlocked" class="simulate">
+    <button (click)="advanceSimulation()" type="button">Advance</button>
 </nav>

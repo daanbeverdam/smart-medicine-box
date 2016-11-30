@@ -13,3 +13,7 @@
         </ul>
     </section>
 </div>
+<div *ngIf="container.isBlocked" class="info-message wrapper">
+    <span>Patient's container is blocked. Unblock?</span>
+    <button (click)="unblockContainer()" class="unblock-button" type="button">Unblock</button>
+</div>

@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 
 import { TimeOfDay } from "./time-of-day";
 import { Medicine } from "./medicine";
+import { Container } from "./container";
 
 const MEDICINES = [
   new Medicine("red", "red"),
@@ -18,22 +19,27 @@ const TIMES = [
 
 @Injectable()
 export class AppService {
+  // this class provides the components with all relevant data and simulations
+  medicines: Medicine[] = MEDICINES;
+  timesOfDay: TimeOfDay[] = TIMES;
   timeIndex: number = 0;
-  medicines: Medicine[];
-  timesOfDay: TimeOfDay[];
+  container: Container = new Container();
+  currentTimeOfDay: TimeOfDay = TIMES[0];
+  simulationStarted: boolean = false;
 
-  getMedicine(): Promise<Medicine[]> {
-    this.medicines = MEDICINES;
-    return Promise.resolve(this.medicines);
+  getMedicines(): Medicine[] {
+    return this.medicines;
   }
 
-  getTimesOfDay(): Promise<TimeOfDay[]> {
-    this.timesOfDay = TIMES;
-    return Promise.resolve(this.timesOfDay);
+  addMedicine(medicine: Medicine) {
+    this.medicines.push(medicine);
+  }
+
+  getTimesOfDay(): TimeOfDay[] {
+    return this.timesOfDay;
   }
 
   getCurrentTimeOfDay(): TimeOfDay {
-    console.log(this.timesOfDay[this.timeIndex]);
     return this.timesOfDay[this.timeIndex];
   }
 
@@ -42,6 +48,15 @@ export class AppService {
       this.timeIndex = 0;
     } else {
       this.timeIndex += 1;
+    }
+    this.currentTimeOfDay = this.getCurrentTimeOfDay();
+  }
+
+  dropMedicines() {
+    if (!this.currentTimeOfDay.medicinesDropped) {
+      this.container.addMedicines(this.currentTimeOfDay.medicines);
+    } else {
+      console.log("Medicines already in container!");
     }
   }
 }
