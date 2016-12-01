@@ -5,16 +5,16 @@ import { Medicine } from "./medicine";
 import { Container } from "./container";
 
 const MEDICINES = [
-  new Medicine("red", "red"),
-  new Medicine("blue", "blue"),
-  new Medicine("green", "green"),
-  new Medicine("black", "black")
+  new Medicine("Red", "red"),
+  new Medicine("Blue", "blue"),
+  new Medicine("Green", "green"),
+  new Medicine("Black", "black")
 ];
 
 const TIMES = [
-  new TimeOfDay("morning", "fa-sun-o"),
-  new TimeOfDay("noon", "fa-sun-o"),
-  new TimeOfDay("evening", "fa-moon-o")
+  new TimeOfDay("Morning", "fa-sun-o"),
+  new TimeOfDay("Noon", "fa-sun-o"),
+  new TimeOfDay("Evening", "fa-moon-o")
 ];
 
 @Injectable()

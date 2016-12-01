@@ -66,13 +66,7 @@ nav.top a.active {
 }
 
 @media screen and (max-width: 550px) {
-    nav.top {
-        display:none;
-    }
-}
-
-@media screen and (min-width: 550px) {
-    nav.main {
+    nav.top a.active{
         display:none;
     }
 }

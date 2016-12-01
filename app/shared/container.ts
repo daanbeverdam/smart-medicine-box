@@ -22,6 +22,10 @@ export class Container {
     return this.medicines;
   }
 
+  getNumberOfMedicines() {
+    return this.medicines.length;
+  }
+
   isEmpty() {
     if (this.medicines.length === 0) {
       return true;

@@ -1,34 +1,46 @@
 <div class="main-view wrapper">
     <div class="main-view">
-        <h2>My box</h2>
         <section ng-model="currentTimeOfDay" class="simulate time-of-day">
-            <header class="header simulation">
-                <i class="fa {{currentTimeOfDay.icon}} {{currentTimeOfDay.name}}" aria-hidden="true"></i>
-                <h3>{{currentTimeOfDay.name}}</h3>
-                <span class="directions">You have to take the following medicines:</span>
-            </header>
-            <div class="medicine-container">
-                <div *ngIf="!currentTimeOfDay.medicinesTaken">
-                    <div *ngFor="let medicine of container.medicines">
-                        <i [style.color]="medicine.color" class="fa fa-pill" aria-hidden="true"></i>
-                        <span>{{medicine.name}}</span>
+            <div class="medicine-dispenser-top" id="square">
+                <i *ngIf="container.isBlocked" class="fa fa-times system-error" aria-hidden="true"></i>
+            </div>
+            <div class="medicine-dispenser-bottom" id="trapezoid">
+            </div>
+            <div id="cup" class="medicine-container">
+                <span class="container-contents">{{container.getNumberOfMedicines()}}</span>
+            </div>
+            <div class="simulation-info wrapper">
+                <div class="container-info card">
+                    <span class="info-text title">Medicines in container:</span>
+                    <span *ngIf="container.medicines.length === 0" >None</span>
+                    <div *ngIf="!currentTimeOfDay.medicinesTaken">
+                        <div *ngFor="let medicine of container.medicines">
+                            <i [style.color]="medicine.color" class="fa fa-pill" aria-hidden="true"></i>
+                            <span>{{medicine.name}}</span>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div *ngIf="currentTimeOfDay.medicinesTaken" class="succes-message">
-                <i class="fa fa-check" aria-hidden="true"></i>
-                <span>Nom, nom!</span>
+            <div class="time-info card">
+                <span class="info-text title">Current time of day:</span>
+                <span class="info-text">
+                    <i class="fa {{currentTimeOfDay.icon}} {{currentTimeOfDay.name}}" aria-hidden="true"></i>
+                    {{currentTimeOfDay.name}}
+                </span>
+                <nav *ngIf="!container.isBlocked" class="simulate">
+                    <button (click)="advanceSimulation()" type="button">Advance</button>
+                </nav>
             </div>
             <div *ngIf="container.isBlocked" class="error-message">
-                <i class="fa fa-times" aria-hidden="true"></i>
                 <span>Oops! You haven't taken your medicine on time. Please contact your doctor on how to proceed.</span>
             </div>
-            <div *ngIf="!container.isBlocked" class="take-button wrapper">
-                <button (click)="takeMedicines()" class="take-button" type="button">Take them!</button>
+            <div *ngIf="!container.isBlocked && container.getNumberOfMedicines()" class="take-button wrapper">
+                <div *ngIf="currentTimeOfDay.medicinesTaken" class="succes-message">
+                    <i class="fa fa-check" aria-hidden="true"></i>
+                    <span>Nom, nom!</span>
+                </div>
+                <button *ngIf="!currentTimeOfDay.medicinesTaken" (click)="takeMedicines()" class="take-button" type="button">Take them!</button>
             </div>
         </section>
     </div>
 </div>
-<nav *ngIf="!container.isBlocked" class="simulate">
-    <button (click)="advanceSimulation()" type="button">Advance</button>
-</nav>

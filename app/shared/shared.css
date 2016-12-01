@@ -78,11 +78,10 @@ button:hover {
 }
 
 .succes-message {
-    margin-top: 1em;
     background-color: #e0ffe0;
     padding: 5px;
+    margin: 5px auto;
     max-width: 200px;
-    margin: 1em auto;
     border-radius: 4px;
     line-height: 1.4em;
 }
@@ -100,6 +99,10 @@ button:hover {
 .unblock-button {
     margin: 10px auto auto auto;
     display: block;
+}
+
+.main-view.medicine {
+    /*display: flex;*/
 }
 
 .main-view {
@@ -139,4 +142,87 @@ button:hover {
     padding: 15px;
     border-radius: 4px;
     line-height: 1.4em;
+}
+
+#square.medicine-dispenser-top {
+    display: block;
+    margin: auto;
+    width: 200px;
+    background: #656565;
+    height: 130px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#trapezoid.medicine-dispenser-bottom {
+    display: block;
+	border-top: 100px solid #656565;
+	border-left: 50px solid transparent;
+	border-right: 50px solid transparent;
+	height: 0;
+	width: 100px;
+    margin: auto;
+}
+
+#cup.medicine-container {
+    border-top: 100px solid #656565;
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    height: 0;
+    width: 50px;
+    margin: 30px auto 0px auto;
+    position: relative;
+}
+
+.simulation-info.wrapper {
+    position: absolute;
+    left: 15px;
+    bottom: 15px;
+}
+
+.container-info,.time-info {
+    float: none;
+}
+
+.time-info.card {
+    position: absolute;
+    width: 120px;
+    min-width: 120px;
+    right: 15px;
+    bottom: 15px;
+}
+
+.container-info.card {
+    width: 120px;
+    min-width: 120px;
+}
+
+.info-text {
+    display: block;
+    margin: 5px 0;
+}
+
+.card .title {
+    font-weight: bold;
+}
+
+nav.simulate {
+    padding: 2px 0px;
+}
+
+.container.pill {
+    position: absolute;
+}
+
+.container-contents {
+    position: relative;
+    bottom: 60px;
+    color: white;
+    font-size: 20px;
+}
+
+.system-error {
+    color: red;
+    font-size: 50px;
 }
