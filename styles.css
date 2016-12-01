@@ -5,6 +5,8 @@
 
 body {
     margin: 0;
+    overflow: scroll;
+    background: #f5f5f5;
 }
 
 .spinner {
