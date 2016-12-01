@@ -226,3 +226,21 @@ nav.simulate {
     color: red;
     font-size: 50px;
 }
+
+@media screen and (max-width: 550px) {
+
+    .simulation-info.wrapper {
+        position: absolute;
+        left: 15px;
+        bottom: inherit;
+        top: 80px;
+    }
+
+    .time-info.card {
+        position: absolute;
+        right: 15px;
+        bottom: inherit;
+        top: 80px
+    }
+
+}
