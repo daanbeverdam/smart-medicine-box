@@ -23,11 +23,14 @@ export class Container {
   }
 
   getNumberOfMedicines() {
-    return this.medicines.length;
+    if (this.medicines) {
+      return this.medicines.length;
+    }
+    return 0;
   }
 
   isEmpty() {
-    if (this.medicines.length === 0) {
+    if (this.getNumberOfMedicines() === 0) {
       return true;
     }
     return false;

@@ -2,7 +2,11 @@
     <div class="main-view">
         <section ng-model="currentTimeOfDay" class="simulate time-of-day">
             <div class="medicine-dispenser-top" id="square">
-                <i *ngIf="container.isBlocked" class="fa fa-times system-error" aria-hidden="true"></i>
+                <div class="dispenser-display">
+                    <p class="display-message">{{displayMessage}}</p>
+                    <i *ngIf="container.isBlocked" class="fa fa-times system-error" aria-hidden="true"></i>
+                </div>
+                <button *ngIf="!currentTimeOfDay.medicinesDropped && currentTimeOfDay.medicinesAvailable() && appService.simulationStarted" class="get-medicine-button" (click)="dropMedicines()" type="button">Get them!</button>
             </div>
             <div class="medicine-dispenser-bottom" id="trapezoid">
             </div>
@@ -12,7 +16,7 @@
             <div class="simulation-info wrapper">
                 <div class="container-info card">
                     <span class="info-text title">Medicines in container:</span>
-                    <span *ngIf="container.medicines.length === 0" >None</span>
+                    <span *ngIf="container.isEmpty()"> None</span>
                     <div *ngIf="!currentTimeOfDay.medicinesTaken">
                         <div *ngFor="let medicine of container.medicines">
                             <i [style.color]="medicine.color" class="fa fa-pill" aria-hidden="true"></i>
@@ -22,17 +26,17 @@
                 </div>
             </div>
             <div class="time-info card">
+                <div *ngIf="appService.simulationStarted">
                 <span class="info-text title">Current time of day:</span>
                 <span class="info-text">
                     <i class="fa {{currentTimeOfDay.icon}} {{currentTimeOfDay.name}}" aria-hidden="true"></i>
                     {{currentTimeOfDay.name}}
                 </span>
+                </div>
                 <nav *ngIf="!container.isBlocked" class="simulate">
-                    <button (click)="advanceSimulation()" type="button">Advance</button>
+                    <button *ngIf="!appService.simulationStarted" (click)="startSimulation()" type="button">Start Simulation</button>
+                    <button *ngIf="appService.simulationStarted" (click)="advanceSimulation()" type="button">Advance</button>
                 </nav>
-            </div>
-            <div *ngIf="container.isBlocked" class="error-message">
-                <span>Oops! You haven't taken your medicine on time. Please contact your doctor on how to proceed.</span>
             </div>
             <div *ngIf="!container.isBlocked && container.getNumberOfMedicines()" class="take-button wrapper">
                 <div *ngIf="currentTimeOfDay.medicinesTaken" class="succes-message">

@@ -37,11 +37,19 @@ export class TimeOfDay {
     return true;
   }
 
+  medicinesAvailable() {
+    if (this.medicines && this.medicines.length > 0) {
+      return true;
+    }
+    return false;
+  }
+
   takeMedicines () {
     this.medicinesTaken = true;
   }
 
   reset () {
     this.medicinesTaken = false;
+    this.medicinesDropped = false;
   }
 }

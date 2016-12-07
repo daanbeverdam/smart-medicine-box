@@ -150,7 +150,6 @@ button:hover {
     width: 200px;
     background: #656565;
     height: 130px;
-    display: flex;
     justify-content: center;
     align-items: center;
 }
@@ -225,6 +224,28 @@ nav.simulate {
 .system-error {
     color: red;
     font-size: 50px;
+    position: relative;
+    top: 25px;
+}
+
+.dispenser-display {
+    background: lightblue;
+    width: 150px;
+    height: 75px;
+    padding: 7px;
+    margin: auto;
+    border-radius: 5px;
+    position: relative;
+    top: 22px;
+}
+
+.display-message {
+    margin: 0;
+}
+
+.get-medicine-button {
+    position: relative;
+    top: 40px;
 }
 
 @media screen and (max-width: 550px) {

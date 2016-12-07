@@ -20,12 +20,14 @@ const TIMES = [
 @Injectable()
 export class AppService {
   // this class provides the components with all relevant data and simulations
+  // at least, that was the plan..
   medicines: Medicine[] = MEDICINES;
   timesOfDay: TimeOfDay[] = TIMES;
   timeIndex: number = 0;
   container: Container = new Container();
   currentTimeOfDay: TimeOfDay = TIMES[0];
   simulationStarted: boolean = false;
+  displayMessage: string;
 
   getMedicines(): Medicine[] {
     return this.medicines;
@@ -44,6 +46,7 @@ export class AppService {
   }
 
   shiftTime() {
+    this.currentTimeOfDay.reset();
     if (this.timeIndex === this.timesOfDay.length - 1) {
       this.timeIndex = 0;
     } else {
@@ -55,6 +58,7 @@ export class AppService {
   dropMedicines() {
     if (!this.currentTimeOfDay.medicinesDropped) {
       this.container.addMedicines(this.currentTimeOfDay.medicines);
+      this.currentTimeOfDay.medicinesDropped = true;
     } else {
       console.log("Medicines already in container!");
     }
