@@ -1,6 +1,9 @@
 <div class="main-view wrapper">
     <div class="main-view">
         <section ng-model="currentTimeOfDay" class="simulate time-of-day">
+            <div *ngIf="currentTimeOfDay.medicinesAvailable() && appService.simulationStarted && !currentTimeOfDay.medicinesDropped" class="notification-sound triangle-isosceles">
+                <span>ping!</span>
+            </div>
             <div class="medicine-dispenser-top" id="square">
                 <div class="dispenser-display">
                     <p class="display-message">{{displayMessage}}</p>
